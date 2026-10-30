@@ -1,4 +1,28 @@
 # Focusly-
+Focusly 🤖
+
+O Focusly é um aplicativo de organização de tarefas criado para ajudar as pessoas a organizar seus estudos e atividades do dia a dia de forma simples, divertida e motivadora.
+
+🎯 Objetivo
+
+Ajudar os usuários a manter a organização, lembrar de suas tarefas e criar bons hábitos.
+
+✨ Funcionalidades planejadas
+
+* 📚 Organização de tarefas de estudo e atividades domésticas.
+* 🔔 Lembretes para não esquecer tarefas.
+* 🔥 Sequência de dias concluídos.
+* 📊 Estatísticas de progresso.
+* ⭐ Sistema de experiência e recompensas.
+* 🤖 Mascote Focus para tornar a experiência mais interativa.
+
+🚧 Estado do projeto
+
+O Focusly está em fase inicial de planejamento e desenvolvimento.
+
+💡 Visão do projeto
+
+Criar um aplicativo que transforme a organização diária em uma experiência mais leve, divertida e motivadora.
 <!DOCTYPE html>
 
 <html lang="pt-BR">
