@@ -23,7 +23,7 @@ O Focusly está em fase inicial de planejamento e desenvolvimento.
 💡 Visão do projeto
 
 Criar um aplicativo que transforme a organização diária em uma experiência mais leve, divertida e motivadora.
-<!DOCTYPE html>
+
 
 <html lang="pt-BR">
 
