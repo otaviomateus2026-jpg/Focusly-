@@ -1,159 +1,78 @@
-# Focusly-
-Focusly 🤖
 
-O Focusly é um aplicativo de organização de tarefas criado para ajudar as pessoas a organizar seus estudos e atividades do dia a dia de forma simples, divertida e motivadora.
+# 🚀 Focusly
 
-🎯 Objetivo
+<p align="center">
+  <strong>Organize seu dia. Conquiste seus objetivos.</strong>
+</p>
 
-Ajudar os usuários a manter a organização, lembrar de suas tarefas e criar bons hábitos.
+<p align="center">
+  Um companheiro inteligente para transformar sua rotina em uma experiência mais leve, organizada e motivadora.
+</p>
 
-✨ Funcionalidades planejadas
+---
 
-* 📚 Organização de tarefas de estudo e atividades domésticas.
-* 🔔 Lembretes para não esquecer tarefas.
-* 🔥 Sequência de dias concluídos.
-* 📊 Estatísticas de progresso.
-* ⭐ Sistema de experiência e recompensas.
-* 🤖 Mascote Focus para tornar a experiência mais interativa.
+## 🤖 O que é o Focusly?
 
-🚧 Estado do projeto
+O Focusly é um aplicativo de produtividade desenvolvido para ajudar as pessoas a organizar seus estudos e tarefas diárias de maneira simples, divertida e eficiente.
 
-O Focusly está em fase inicial de planejamento e desenvolvimento.
+Com a ajuda do Focus, nosso mascote robótico, você poderá acompanhar seu progresso, receber lembretes e desenvolver hábitos melhores.
 
-💡 Visão do projeto
+## 🎯 Nossa missão
 
-Criar um aplicativo que transforme a organização diária em uma experiência mais leve, divertida e motivadora.
+Tornar a organização diária mais fácil e motivadora, ajudando cada pessoa a aproveitar melhor seu tempo e alcançar seus objetivos.
 
+## ✨ Funcionalidades planejadas
 
-<html lang="pt-BR">
+- 📚 **Organização de tarefas:** organize estudos e atividades domésticas.
+- 🔔 **Lembretes inteligentes:** receba avisos para não esquecer tarefas importantes.
+- 🔥 **Sequência diária:** acompanhe seus dias de produtividade.
+- 📊 **Estatísticas:** visualize seu progresso e suas conquistas.
+- ⭐ **Sistema de XP:** ganhe experiência ao concluir tarefas.
+- 💎 **Recompensas:** desbloqueie recompensas e proteções de sequência.
+- 🤖 **Mascote Focus:** tenha um companheiro durante sua jornada.
+- 🎨 **Interface moderna:** navegue por telas simples e intuitivas.
+- 🎙️ **Interação por voz:** possibilidade de interagir com o Focus por voz.
 
-<head>
+## 🧭 Como o aplicativo funcionará?
 
-  <meta charset="UTF-8">
+1. O usuário organiza suas tarefas.
+2. Define os horários e os lembretes.
+3. Conclui as atividades ao longo do dia.
+4. Acompanha seu progresso e ganha experiência.
+5. Mantém sua motivação com missões e recompensas.
 
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+## 🛠️ Tecnologias previstas
 
-  <title>Focusly</title>
+- Flutter: desenvolvimento da interface do aplicativo.
+- Dart: linguagem de programação.
+- GitHub: armazenamento e acompanhamento do código.
 
-  <style>
+*As tecnologias e funcionalidades poderão mudar durante o desenvolvimento.*
 
-    body {
+## 📌 Estado atual do projeto
 
-      background: #101827;
+🚧 **Em fase inicial de desenvolvimento.**
 
-      color: white;
+O projeto está sendo organizado e suas funcionalidades estão sendo planejadas. Os recursos descritos acima são objetivos para versões futuras e ainda não significam que já estejam implementados.
 
-      font-family: Arial, sans-serif;
+## 🗺️ Próximas etapas
 
-      text-align: center;
+- [ ] Planejar a estrutura do aplicativo.
+- [ ] Criar a identidade visual do Focusly.
+- [ ] Desenvolver a primeira tela.
+- [ ] Implementar o sistema de tarefas.
+- [ ] Adicionar lembretes e notificações.
+- [ ] Desenvolver estatísticas e recompensas.
+- [ ] Testar o aplicativo e corrigir problemas.
 
-      padding: 40px 15px;
+## 💡 Nossa visão
 
-    }
+Queremos que o Focusly seja mais do que uma agenda: queremos que seja um companheiro que ajude as pessoas a manter o foco, criar bons hábitos e comemorar cada conquista.
 
-    h1 { color: #53a8ff; }
+---
 
-    button {
-
-      background: #2585f5;
-
-      color: white;
-
-      border: none;
-
-      padding: 14px 22px;
-
-      border-radius: 12px;
-
-      font-size: 17px;
-
-    }
-
-  </style>
-
-</head>
-
-<body>
-
-  <h1>Focusly 🚀</h1>
-
-  <h2>Olá! Eu sou o Focus 🤖</h2>
-
-  <p>Vamos organizar seu dia?</p>
-
-  <button onclick="alert('Vamos criar sua primeira atividade!')">
-
-    Criar atividade
-
-  </button>
-
-</body>
-
-</html>
-<!DOCTYPE html>
-
-<html lang="pt-BR">
-
-<head>
-
-  <meta charset="UTF-8">
-
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <title>Focusly</title>
-
-  <style>
-
-    body {
-
-      background: #101827;
-
-      color: white;
-
-      font-family: Arial, sans-serif;
-
-      text-align: center;
-
-      padding: 40px 15px;
-
-    }
-
-    h1 { color: #53a8ff; }
-
-    button {
-
-      background: #2585f5;
-
-      color: white;
-
-      border: none;
-
-      padding: 14px 22px;
-
-      border-radius: 12px;
-
-      font-size: 17px;
-
-    }
-
-  </style>
-
-</head>
-
-<body>
-
-  <h1>Focusly 🚀</h1>
-
-  <h2>Olá! Eu sou o Focus 🤖</h2>
-
-  <p>Vamos organizar seu dia?</p>
-
-  <button onclick="alert('Vamos criar sua primeira atividade!')">
-
-    Criar atividade
-
-  </button>
-
-</body>
-
-</html>
+<p align="center">
+  🤖 <strong>Focusly</strong>
+  <br>
+  Seu dia, seus objetivos, seu progresso.
+</p>
