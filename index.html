@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta name="theme-color" content="#0b1020">
+
+  <title>Focusly | Seu foco diário</title>
+
+  <style>
+
+    * {
+
+      box-sizing: border-box;
+
+      margin: 0;
+
+      padding: 0;
+
+    }
+
+    body {
+
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+
+      background: #0b1020;
+
+      color: #f4f7ff;
+
+      min-height: 100vh;
+
+      padding: 24px 16px 40px;
+
+    }
+
+    .app {
+
+      max-width: 650px;
+
+      margin: 0 auto;
+
+    }
+
+    header {
+
+      display: flex;
+
+      justify-content: space-between;
+
+      align-items: center;
+
+      margin-bottom: 28px;
+
+    }
+
+    .logo {
+
+      font-size: 25px;
+
+      font-weight: 800;
+
+      letter-spacing: -1px;
+
+    }
+
+    .logo span {
+
+      color: #55aaff;
+
+    }
+
+    .streak {
+
+      background: #202943;
+
+      border: 1px solid #34415f;
+
+      border-radius: 14px;
+
+      padding: 10px 13px;
+
+      font-weight: 700;
+
+    }
+
+    .welcome {
+
+      background: linear-gradient(135deg, #182b50, #15203a);
+
+      border: 1px solid #2c4776;
+
+      border-radius: 24px;
+
+      padding: 25px 22px;
+
+      margin-bottom: 24px;
+
+    }
+
+    .robot {
+
+      font-size: 52px;
+
+      margin-bottom: 12px;
+
+    }
+
+    .welcome h1 {
+
+      font-size: 27px;
+
+      margin-bottom: 10px;
+
+    }
+
+    .welcome p {
+
+      color: #c5d5f4;
+
+      line-height: 1.6;
+
+    }
+
+    .section-title {
+
+      display: flex;
+
+      justify-content: space-between;
+
+      align-items: center;
+
+      margin: 24px 0 14px;
+
+    }
+
+    .section-title h2 {
+
+      font-size: 19px;
+
+    }
+
+    .muted {
+
+      color: #9aa8c4;
+
+      font-size: 13px;
+
+    }
+
+    .stats {
+
+      display: grid;
+
+      grid-template-columns: 1fr 1fr;
+
+      gap: 12px;
+
+    }
+
+    .stat {
+
+      background: #141c30;
+
+      border: 1px solid #27334e;
+
+      border-radius: 17px;
+
+      padding: 18px;
+
+    }
+
+    .stat strong {
+
+      display: block;
+
+      font-size: 27px;
+
+      margin-bottom: 7px;
+
+    }
+
+    .stat span {
+
+      color: #aab7d0;
+
+      font-size: 13px;
+
+    }
+
+    .task-list {
+
+      display: grid;
+
+      gap: 10px;
+
+    }
+
+    .task {
+
+      display: flex;
+
+      align-items: center;
+
+      gap: 12px;
+
+      background: #141c30;
+
+      border: 1px solid #27334e;
+
+      border-radius: 15px;
+
+      padding: 16px;
+
+    }
+
+    .task input {
+
+      width: 19px;
+
+      height: 19px;
+
+      accent-color: #48a6ff;
+
+      flex-shrink: 0;
+
+    }
+
+    .task-info {
+
+      flex: 1;
+
+      min-width: 0;
+
+    }
+
+    .task-info strong {
+
+      display: block;
+
+      overflow-wrap: anywhere;
+
+    }
+
+    .task-info small {
+
+      display: block;
+
+      color: #9aa8c4;
+
+      margin-top: 5px;
+
+    }
+
+    .task.done strong {
+
+      text-decoration: line-through;
+
+      color: #8390a9;
+
+    }
+
+    .empty {
+
+      text-align: center;
+
+      color: #9aa8c4;
+
+      padding: 25px 12px;
+
+      background: #141c30;
+
+      border-radius: 15px;
+
+      border: 1px dashed #34415f;
+
+    }
+
+    .add-button {
+
+      width: 100%;
+
+      border: 0;
+
+      border-radius: 16px;
+
+      padding: 17px;
+
+      background: #3296ff;
+
+      color: white;
+
+      font-size: 16px;
+
+      font-weight: 800;
+
+      margin-top: 20px;
+
+      cursor: pointer;
+
+    }
+
+    .add-button:active {
+
+      transform: scale(0.98);
+
+    }
+
+    .footer {
+
+      text-align: center;
+
+      color: #75839f;
+
+      font-size: 12px;
+
+      margin-top: 30px;
+
+    }
+
+  </style>
+
+</head>
+
+<body>
+
+  <main class="app">
+
+    <header>
+
+      <div class="logo">Focus<span>ly</span></div>
+
+      <div class="streak">🔥 <span id="streak">0</span> dias</div>
+
+    </header>
+
+    <section class="welcome">
+
+      <div class="robot">🤖</div>
+
+      <h1>Olá! Eu sou o Focus.</h1>
+
+      <p>Vamos organizar seu dia? Cada tarefa concluída é um passo a mais em direção aos seus objetivos.</p>
+
+    </section>
+
+    <section>
+
+      <div class="section-title">
+
+        <h2>Seu progresso</h2>
+
+        <span class="muted">Hoje</span>
+
+      </div>
+
+      <div class="stats">
+
+        <div class="stat">
+
+          <strong id="completed">0</strong>
+
+          <span>Tarefas concluídas</span>
+
+        </div>
+
+        <div class="stat">
+
+          <strong id="total">0</strong>
+
+          <span>Total de tarefas</span>
+
+        </div>
+
+      </div>
+
+    </section>
+
+    <section>
+
+      <div class="section-title">
+
+        <h2>Minhas tarefas</h2>
+
+        <span class="muted" id="remaining">0 pendentes</span>
+
+      </div>
+
+      <div class="task-list" id="taskList">
+
+        <div class="empty">Nenhuma tarefa ainda. Crie sua primeira atividade! ✨</div>
+
+      </div>
+
+      <button class="add-button" id="addTask">＋ Criar atividade</button>
+
+    </section>
+
+    <p class="footer">Focusly • Seu dia, seus objetivos, seu progresso.</p>
+
+  </main>
+
+  <script>
+
+    const tasks = [];
+
+    const taskList = document.getElementById("taskList");
+
+    const addButton = document.getElementById("addTask");
+
+    function renderTasks() {
+
+      taskList.innerHTML = "";
+
+      if (tasks.length === 0) {
+
+        taskList.innerHTML =
+
+          '<div class="empty">Nenhuma tarefa ainda. Crie sua primeira atividade! ✨</div>';
+
+      }
+
+      tasks.forEach((task, index) => {
+
+        const item = document.createElement("div");
+
+        item.className = "task" + (task.done ? " done" : "");
+
+        const checkbox = document.createElement("input");
+
+        checkbox.type = "checkbox";
+
+        checkbox.checked = task.done;
+
+        checkbox.setAttribute("aria-label", "Concluir " + task.name);
+
+        checkbox.addEventListener("change", () => {
+
+          task.done = checkbox.checked;
+
+          renderTasks();
+
+        });
+
+        const info = document.createElement("div");
+
+        info.className = "task-info";
+
+        const name = document.createElement("strong");
+
+        name.textContent = task.name;
+
+        const time = document.createElement("small");
+
+        time.textContent = task.time
+
+          ? "⏰ " + task.time
+
+          : "📌 Atividade do dia";
+
+        info.append(name, time);
+
+        item.append(checkbox, info);
+
+        taskList.appendChild(item);
+
+      });
+
+      const done = tasks.filter(task => task.done).length;
+
+      document.getElementById("completed").textContent = done;
+
+      document.getElementById("total").textContent = tasks.length;
+
+      document.getElementById("remaining").textContent =
+
+        (tasks.length - done) + " pendentes";
+
+    }
+
+    addButton.addEventListener("click", () => {
+
+      const name = prompt("Qual atividade você deseja realizar?");
+
+      if (!name || !name.trim()) return;
+
+      const time = prompt(
+
+        "Qual o horário? Exemplo: 14:30. Deixe vazio se não quiser definir."
+
+      );
+
+      tasks.push({
+
+        name: name.trim(),
+
+        time: time ? time.trim() : "",
+
+        done: false
+
+      });
+
+      renderTasks();
+
+    });
+
+    renderTasks();
+
+  </script>
+
+</body>
+
+</html>
