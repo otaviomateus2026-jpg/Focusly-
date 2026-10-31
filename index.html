@@ -702,6 +702,10 @@ introNameForm.addEventListener("submit", (event) => {
 
   const container = document.getElementById("focus3d");
 
+const status = document.createElement("p");
+status.style.color = "white";
+status.textContent = "Carregando o Focus 3D...";
+container.appendChild(status);
   if (container) {
     const scene = new THREE.Scene();
 
