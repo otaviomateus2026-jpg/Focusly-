@@ -640,11 +640,12 @@ if (savedName) {
   introScreen.style.display = "flex";
 }
 
-document.getElementById("introStart").addEventListener("click", () => {
+const introStart = document.getElementById("introStart");
+
+introStart.onclick = function () {
   introWelcome.style.display = "none";
   introNameForm.style.display = "block";
-  introNameInput.focus();
-});
+};
 
 introNameForm.addEventListener("submit", (event) => {
   event.preventDefault();
