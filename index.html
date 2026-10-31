@@ -614,6 +614,10 @@ renderTasks();
     renderTasks();
     
 const introScreen = document.getElementById("introScreen");
+document.getElementById("introStart").addEventListener("click", function () {
+  document.getElementById("introWelcome").style.display = "none";
+  document.getElementById("introNameForm").style.display = "block";
+});
 const introWelcome = document.getElementById("introWelcome");
 const introNameForm = document.getElementById("introNameForm");
 const introNameInput = document.getElementById("introName");
