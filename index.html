@@ -696,31 +696,101 @@ introNameForm.addEventListener("submit", (event) => {
   }
 }
 </script>
-  <script type="module">
+  
+    
+<script type="module">
   import * as THREE from "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js";
   import { GLTFLoader } from "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/loaders/GLTFLoader.js";
 
   const container = document.getElementById("focus3d");
 
-const status = document.createElement("p");
-status.style.color = "white";
-status.textContent = "Carregando o Focus 3D...";
-container.appendChild(status);
-  if (container) {
-    const scene = new THREE.Scene();
+  if (!container) {
+    console.error("Espaço do Focus 3D não encontrado.");
+  } else {
+    const status = document.createElement("p");
+    status.style.color = "white";
+    status.textContent = "Carregando o Focus...";
+    container.appendChild(status);
 
-    const camera = new THREE.PerspectiveCamera(
-      35,
-      1,
-      0.1,
-      100
-    );
-    camera.position.z = 5;
+    try {
+      const scene = new THREE.Scene();
 
-    const renderer = new THREE.WebGLRenderer({
-      alpha: true,
-      antialias: true
-    });
+      const camera = new THREE.PerspectiveCamera(35, 1, 0.1, 100);
+      camera.position.z = 5;
+
+      const renderer = new THREE.WebGLRenderer({
+        alpha: true,
+        antialias: true
+      });
+
+      renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+      container.appendChild(renderer.domElement);
+
+      scene.add(new THREE.HemisphereLight(0xffffff, 0x335577, 2));
+
+      const light = new THREE.DirectionalLight(0xffffff, 2);
+      light.position.set(3, 5, 5);
+      scene.add(light);
+
+      const loader = new GLTFLoader();
+
+      loader.load(
+        "./assets/character.glb",
+
+        (gltf) => {
+          const model = gltf.scene;
+          scene.add(model);
+
+          const box = new THREE.Box3().setFromObject(model);
+          const center = box.getCenter(new THREE.Vector3());
+          const size = box.getSize(new THREE.Vector3());
+
+          model.position.sub(center);
+
+          const maxDimension = Math.max(size.x, size.y, size.z);
+          if (maxDimension > 0) {
+            model.scale.setScalar(2.5 / maxDimension);
+          }
+
+          status.textContent = "Focus carregado!";
+
+          function resize() {
+            const width = container.clientWidth;
+            const height = container.clientHeight;
+
+            if (!width || !height) return;
+
+            camera.aspect = width / height;
+            camera.updateProjectionMatrix();
+            renderer.setSize(width, height);
+          }
+
+          resize();
+          window.addEventListener("resize", resize);
+
+          function animate() {
+            requestAnimationFrame(animate);
+            model.rotation.y += 0.005;
+            renderer.render(scene, camera);
+          }
+
+          animate();
+        },
+
+        undefined,
+
+        (error) => {
+          console.error("Erro ao carregar Focus:", error);
+          status.textContent = "Não foi possível carregar o Focus 3D.";
+        }
+      );
+    } catch (error) {
+      console.error(error);
+      status.textContent = "Erro ao iniciar o visualizador 3D.";
+    }
+  }
+</script>
+
 
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
     container.appendChild(renderer.domElement);
