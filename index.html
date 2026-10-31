@@ -630,6 +630,7 @@ function showApp() {
 }
 
 const savedName = localStorage.getItem("focusly_user_name");
+localStorage.removeItem("focusly_user_name");
 
 if (savedName) {
   updateGreeting(savedName);
