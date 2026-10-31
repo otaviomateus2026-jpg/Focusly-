@@ -436,9 +436,13 @@ input[type="checkbox"] {
         Vou ajudar você a organizar suas tarefas
         e alcançar seus objetivos. Vamos começar?
       </p>
-      <button id="introStart" type="button">
-        Vamos nos conhecer →
-      </button>
+     <button
+  id="introStart"
+  type="button"
+  onclick="document.getElementById('introWelcome').style.display='none'; document.getElementById('introNameForm').style.display='block';"
+>
+  Vamos nos conhecer →
+</button>
     </div>
 
     <form id="introNameForm" style="display:none">
