@@ -739,6 +739,7 @@ container.appendChild(status);
         const model = gltf.scene;
         scene.add(model);
 
+status.textContent = "Focus 3D carregado!";
         const box = new THREE.Box3().setFromObject(model);
         const center = box.getCenter(new THREE.Vector3());
         const size = box.getSize(new THREE.Vector3());
