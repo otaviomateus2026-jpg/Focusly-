@@ -420,11 +420,17 @@ input[type="checkbox"] {
   margin-top: 10px;
 }
 .intro-robot {
-  display: inline-block;
-  font-size: 76px;
-  margin: 20px 0;
-  animation: focusVoando 2s ease-in-out infinite;
+  width: 260px;
+  height: 260px;
+  margin: 20px auto;
+  position: relative;
+  animation: focusVoando 3s ease-in-out infinite;
   filter: drop-shadow(0 0 14px #168cff);
+}
+
+#focus3d {
+  width: 100%;
+  height: 100%;
 }
 
 @keyframes focusVoando {
@@ -433,7 +439,7 @@ input[type="checkbox"] {
   }
 
   50% {
-    transform: translateY(-18px);
+    transform: translateY(-12px);
   }
 }
   </style>
