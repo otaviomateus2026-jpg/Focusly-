@@ -271,12 +271,13 @@
         const checkbox = document.createElement("input");
         checkbox.type = "checkbox";
         checkbox.checked = task.done;
-        checkbox.setAttribute("aria-label", "Concluir " + task.name);
+        checkbox.setAttribute("aria-label", "Concluir " + task.
 
-        checkbox.addEventListener("change", () => {
-          task.done = checkbox.checked;
-          renderTasks();
-        });
+checkbox.addEventListener("change", () => {
+  task.done = checkbox.checked;
+  saveTasks();
+  renderTasks();
+});
 
         const info = document.createElement("div");
         info.className = "task-info";
@@ -301,7 +302,9 @@
       document.getElementById("remaining").textContent =
         (tasks.length - done) + " pendentes";
     }
-
+function saveTasks() {
+  localStorage.setItem("focusly_tasks", JSON.stringify(tasks));
+}
     addButton.addEventListener("click", () => {
       const name = prompt("Qual atividade você deseja realizar?");
 
