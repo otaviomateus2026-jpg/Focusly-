@@ -614,10 +614,6 @@ renderTasks();
     renderTasks();
     
 const introScreen = document.getElementById("introScreen");
-document.getElementById("introStart").addEventListener("click", function () {
-  document.getElementById("introWelcome").style.display = "none";
-  document.getElementById("introNameForm").style.display = "block";
-});
 const introWelcome = document.getElementById("introWelcome");
 const introNameForm = document.getElementById("introNameForm");
 const introNameInput = document.getElementById("introName");
@@ -634,7 +630,6 @@ function showApp() {
 }
 
 const savedName = localStorage.getItem("focusly_user_name");
-localStorage.removeItem("focusly_user_name");
 
 if (savedName) {
   updateGreeting(savedName);
@@ -644,12 +639,10 @@ if (savedName) {
   introScreen.style.display = "flex";
 }
 
-const introStart = document.getElementById("introStart");
-
-introStart.onclick = function () {
+document.getElementById("introStart").addEventListener("click", () => {
   introWelcome.style.display = "none";
   introNameForm.style.display = "block";
-};
+});
 
 introNameForm.addEventListener("submit", (event) => {
   event.preventDefault();
@@ -665,36 +658,6 @@ introNameForm.addEventListener("submit", (event) => {
   localStorage.setItem("focusly_user_name", name);
   updateGreeting(name);
   showApp();
-});
-
-  updateGreeting(savedName);
-} else {
-  document.querySelector(".app").style.display = "none";
-  introScreen.style.display = "flex";
-}
-
-document.getElementById("introStart").addEventListener("click", () => {
-  introWelcome.style.display = "none";
-  introNameForm.style.display = "block";
-  introNameInput.focus();
-});
-
-introNameForm.addEventListener("submit", (event) => {
-  event.preventDefault();
-
-  const name = introNameInput.value.trim();
-
-  if (!name) {
-    document.getElementById("introError").textContent =
-      "Digite seu nome ou apelido para continuar.";
-    return;
-  }
-
-  localStorage.setItem("focusly_user_name", name);
-  updateGreeting(name);
-
-  introScreen.style.display = "none";
-  document.querySelector(".app").style.display = "block";
 });
 
   </script>
