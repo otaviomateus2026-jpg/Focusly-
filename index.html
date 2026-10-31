@@ -271,7 +271,7 @@
         const checkbox = document.createElement("input");
         checkbox.type = "checkbox";
         checkbox.checked = task.done;
-        checkbox.setAttribute("aria-label", "Concluir " + task.
+         checkbox.setAttribute("aria-label", "Concluir " + task.name);
 
 checkbox.addEventListener("change", () => {
   task.done = checkbox.checked;
