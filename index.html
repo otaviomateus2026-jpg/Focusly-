@@ -315,12 +315,13 @@ function saveTasks() {
       );
 
       tasks.push({
-        name: name.trim(),
-        time: time ? time.trim() : "",
-        done: false
-      });
+  name: name.trim(),
+  time: time ? time.trim() : "",
+  done: false
+});
 
-      renderTasks();
+saveTasks();
+renderTasks();
     });
 
     renderTasks();
