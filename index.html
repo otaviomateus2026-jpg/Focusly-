@@ -284,14 +284,29 @@ checkbox.addEventListener("change", () => {
 
         const name = document.createElement("strong");
         name.textContent = task.name;
+        const deleteButton = document.createElement("button");
+deleteButton.textContent = "🗑️";
+deleteButton.setAttribute("aria-label", "Excluir " + task.name);
 
+deleteButton.addEventListener("click", () => {
+  const confirmed = confirm("Deseja excluir esta atividade?");
+
+  if (!confirmed) return;
+
+  tasks = tasks.filter((itemTask) => itemTask !== task);
+  saveTasks();
+  renderTasks();
+});
+
+deleteButton.style.marginLeft = "10px";
+deleteButton.style.cursor = "pointer";
         const time = document.createElement("small");
         time.textContent = task.time
           ? "⏰ " + task.time
           : "📌 Atividade do dia";
 
         info.append(name, time);
-        item.append(checkbox, info);
+        item.append(checkbox, info, deleteButton);
         taskList.appendChild(item);
       });
 
