@@ -424,6 +424,39 @@ input[type="checkbox"] {
 </head>
 
 <body>
+  
+<div id="introScreen">
+  <div class="intro-content">
+    <div class="intro-logo">Focus<span>ly</span></div>
+    <div class="intro-robot">🤖🚀</div>
+
+    <div id="introWelcome">
+      <h1>Olá! Eu sou o Focus 👋</h1>
+      <p>
+        Vou ajudar você a organizar suas tarefas
+        e alcançar seus objetivos. Vamos começar?
+      </p>
+      <button id="introStart" type="button">
+        Vamos nos conhecer →
+      </button>
+    </div>
+
+    <form id="introNameForm" style="display:none">
+      <h1>Como posso te chamar?</h1>
+      <p>Digite seu nome ou apelido.</p>
+      <input
+        id="introName"
+        type="text"
+        maxlength="30"
+        placeholder="Seu nome ou apelido"
+        required
+      >
+      <button type="submit">Continuar →</button>
+      <p id="introError" class="intro-error"></p>
+    </form>
+  </div>
+</div>
+
   <main class="app">
     <header>
       <div class="logo">Focus<span>ly</span></div>
