@@ -617,16 +617,50 @@ const introScreen = document.getElementById("introScreen");
 const introWelcome = document.getElementById("introWelcome");
 const introNameForm = document.getElementById("introNameForm");
 const introNameInput = document.getElementById("introName");
+const app = document.querySelector(".app");
 
 function updateGreeting(name) {
   document.querySelector(".welcome h1").textContent =
     "Olá, " + name + "! Eu sou o Focus.";
 }
 
+function showApp() {
+  introScreen.style.display = "none";
+  app.style.display = "block";
+}
+
 const savedName = localStorage.getItem("focusly_user_name");
 
 if (savedName) {
-  document.querySelector(".app").style.display = "block";
+  updateGreeting(savedName);
+  showApp();
+} else {
+  app.style.display = "none";
+  introScreen.style.display = "flex";
+}
+
+document.getElementById("introStart").addEventListener("click", () => {
+  introWelcome.style.display = "none";
+  introNameForm.style.display = "block";
+  introNameInput.focus();
+});
+
+introNameForm.addEventListener("submit", (event) => {
+  event.preventDefault();
+
+  const name = introNameInput.value.trim();
+
+  if (!name) {
+    document.getElementById("introError").textContent =
+      "Digite seu nome ou apelido para continuar.";
+    return;
+  }
+
+  localStorage.setItem("focusly_user_name", name);
+  updateGreeting(name);
+  showApp();
+});
+
   updateGreeting(savedName);
 } else {
   document.querySelector(".app").style.display = "none";
