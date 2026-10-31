@@ -419,7 +419,23 @@ input[type="checkbox"] {
   font-size: 14px;
   margin-top: 10px;
 }
+.intro-robot {
+  display: inline-block;
+  font-size: 76px;
+  margin: 20px 0;
+  animation: focusVoando 2s ease-in-out infinite;
+  filter: drop-shadow(0 0 14px #168cff);
+}
 
+@keyframes focusVoando {
+  0%, 100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-18px);
+  }
+}
   </style>
 </head>
 
