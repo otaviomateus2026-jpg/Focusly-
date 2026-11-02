@@ -655,6 +655,19 @@ deleteButton.style.cursor = "pointer";
 function saveTasks() {
   localStorage.setItem("focusly_tasks", JSON.stringify(tasks));
 }
+function updateXP() {
+  const level = Math.floor(xp / 100) + 1;
+  const currentXP = xp % 100;
+
+  document.getElementById("userLevel").textContent = level;
+  document.getElementById("userXP").textContent = currentXP;
+  document.getElementById("xpProgress").style.width = currentXP + "%";
+
+  document.getElementById("xpMessage").textContent =
+    "Continue completando suas tarefas!";
+
+  localStorage.setItem("focusly_xp", xp);
+}
     addButton.addEventListener("click", () => {
       const name = prompt("Qual atividade você deseja realizar?");
 
