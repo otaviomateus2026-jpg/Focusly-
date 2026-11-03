@@ -119,11 +119,89 @@
       color: #aab7d0;
       font-size: 13px;
     }
+.daily-progress {
+  background: #141c30;
+  border: 1px solid #27334e;
+  border-radius: 17px;
+  padding: 16px;
+  margin-bottom: 14px;
+}
+
+.progress-info {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+#dailyPercent {
+  color: #55aaff;
+  font-weight: bold;
+}
+
+.daily-progress-bar {
+  height: 10px;
+  background: #293650;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+#dailyProgressFill {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, #328cff, #55d6ff);
+  border-radius: 20px;
+  transition: width 0.4s ease;
+}
+
+#dailyMessage {
+  color: #9aa8c4;
+  font-size: 12px;
+  margin-top: 10px;
+}
 
     .task-list {
       display: grid;
       gap: 10px;
     }
+    .daily-progress {
+  background: #141c30;
+  border: 1px solid #27334e;
+  border-radius: 17px;
+  padding: 16px;
+  margin-bottom: 14px;
+}
+
+.progress-info {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+#dailyPercent {
+  color: #55aaff;
+  font-weight: bold;
+}
+
+.daily-progress-bar {
+  height: 10px;
+  background: #293650;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+#dailyProgressFill {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, #328cff, #55d6ff);
+  border-radius: 20px;
+  transition: width 0.4s ease;
+}
+
+#dailyMessage {
+  color: #9aa8c4;
+  font-size: 12px;
+  margin-top: 10px;
+}
 
     .task {
       display: flex;
@@ -583,7 +661,18 @@ input[type="checkbox"] {
         <span class="muted">Hoje</span>
       </div>
 
+<div class="daily-progress">
+  <div class="progress-info">
+    <strong>Progresso do dia</strong>
+    <span id="dailyPercent">0%</span>
+  </div>
 
+  <div class="daily-progress-bar">
+    <div id="dailyProgressFill"></div>
+  </div>
+
+  <p id="dailyMessage">Vamos começar a conquistar seus objetivos!</p>
+</div>
 
       <div class="stats">
         <div class="stat">
