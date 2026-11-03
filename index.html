@@ -836,6 +836,27 @@ deleteButton.style.cursor = "pointer";
       document.getElementById("total").textContent = tasks.length;
       document.getElementById("remaining").textContent =
         (tasks.length - done) + " pendentes";
+        const percent = tasks.length === 0
+  ? 0
+  : Math.round((done / tasks.length) * 100);
+
+document.getElementById("dailyPercent").textContent =
+  percent + "%";
+
+document.getElementById("dailyProgressFill").style.width =
+  percent + "%";
+
+const dailyMessage = document.getElementById("dailyMessage");
+
+if (percent === 100 && tasks.length > 0) {
+  dailyMessage.textContent = "Incrível! Você concluiu tudo hoje! 🏆";
+} else if (percent >= 50) {
+  dailyMessage.textContent = "Você está indo muito bem! Continue assim! 🚀";
+} else if (percent > 0) {
+  dailyMessage.textContent = "Bom começo! Continue avançando! 💪";
+} else {
+  dailyMessage.textContent = "Vamos começar a conquistar seus objetivos!";
+}
     }
 function saveTasks() {
   localStorage.setItem("focusly_tasks", JSON.stringify(tasks));
