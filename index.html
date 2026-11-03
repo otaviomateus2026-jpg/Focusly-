@@ -463,6 +463,44 @@ input[type="checkbox"] {
   border-radius: 10px;
   white-space: nowrap;
 }
+/* Navegação inferior do Focusly */
+.bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 12px 5px calc(12px + env(safe-area-inset-bottom));
+  background: #101d30;
+  border-top: 1px solid #263d5c;
+  z-index: 1000;
+}
+
+.nav-button {
+  background: none;
+  border: none;
+  color: #9aabc2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.nav-button.active {
+  color: #55aaff;
+}
+
+.nav-button span:first-child {
+  font-size: 21px;
+}
+
+.app {
+  padding-bottom: 100px;
+}
   </style>
 </head>
 
