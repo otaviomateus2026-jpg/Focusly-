@@ -501,6 +501,14 @@ input[type="checkbox"] {
 .app {
   padding-bottom: 100px;
 }
+/* Organização das telas */
+.app-screen {
+  display: none;
+}
+
+.app-screen.active {
+  display: block;
+}
   </style>
 </head>
 
@@ -575,18 +583,7 @@ input[type="checkbox"] {
         <span class="muted">Hoje</span>
       </div>
 
-<div class="xp-panel">
-  <div class="xp-header">
-    <span>⭐ Nível <strong id="userLevel">1</strong></span>
-    <span><strong id="userXP">0</strong> / 100 XP</span>
-  </div>
 
-  <div class="xp-bar">
-    <div id="xpProgress"></div>
-  </div>
-
-  <p id="xpMessage">Continue completando suas tarefas!</p>
-</div>
 
       <div class="stats">
         <div class="stat">
@@ -618,6 +615,37 @@ input[type="checkbox"] {
         ＋ Criar atividade
       </button>
     </section>
+    
+    <section id="rewardsScreen" class="app-screen">
+  <div class="section-title">
+    <h2>🏆 Meus prêmios</h2>
+    <span class="muted">Suas conquistas</span>
+  </div>
+
+  <div class="xp-panel">
+    <div class="xp-header">
+      <span>⭐ Nível <strong id="userLevel">1</strong></span>
+      <span><strong id="userXP">0</strong> / 100 XP</span>
+    </div>
+
+    <div class="xp-bar">
+      <div id="xpProgress"></div>
+    </div>
+
+    <p id="xpMessage">Continue completando suas tarefas!</p>
+  </div>
+</section>
+
+<section id="profileScreen" class="app-screen">
+  <div class="section-title">
+    <h2>👤 Meu perfil</h2>
+  </div>
+
+  <div class="xp-panel">
+    <h3 id="profileName">Olá!</h3>
+    <p>Bem-vindo ao seu espaço no Focusly.</p>
+  </div>
+</section>
 
     <p class="footer">
       Focusly • Seu dia, seus objetivos, seu progresso.
@@ -767,25 +795,54 @@ const app = document.querySelector(".app");
 function updateGreeting(name) {
   document.querySelector(".welcome h1").textContent =
     "Olá, " + name + "! Eu sou o Focus.";
-}
 
+  document.getElementById("profileName").textContent =
+    "Olá, " + name + "!";
+}
 function showApp() {
   introScreen.style.display = "none";
   app.style.display = "block";
+
+  Object.values(screens).forEach((screen) => {
+    screen.style.display = "none";
+  });
+
+  screens.home.style.display = "block";
+
+  navButtons.forEach((button) => {
+    button.classList.remove("active");
+
+    if (button.dataset.screen === "home") {
+      button.classList.add("active");
+    }
+  });
 }
 const navButtons = document.querySelectorAll(".nav-button");
 
+const screens = {
+  home: document.getElementById("homeScreen"),
+  tasks: document.getElementById("tasksScreen"),
+  rewards: document.getElementById("rewardsScreen"),
+  profile: document.getElementById("profileScreen")
+};
+
 navButtons.forEach((button) => {
   button.addEventListener("click", () => {
-    navButtons.forEach((item) => item.classList.remove("active"));
+    const screenName = button.dataset.screen;
+
+    Object.values(screens).forEach((screen) => {
+      screen.style.display = "none";
+    });
+
+    screens[screenName].style.display = "block";
+
+    navButtons.forEach((item) => {
+      item.classList.remove("active");
+    });
+
     button.classList.add("active");
-
-    const screen = button.dataset.screen;
-
-    console.log("Tela selecionada:", screen);
   });
 });
-
 const savedName = localStorage.getItem("focusly_user_name");
 
 if (savedName) {
