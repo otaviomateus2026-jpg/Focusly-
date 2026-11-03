@@ -621,6 +621,27 @@ input[type="checkbox"] {
       Focusly • Seu dia, seus objetivos, seu progresso.
     </p>
   </main>
+<nav class="bottom-nav">
+  <button class="nav-button active" data-screen="home">
+    <span>🏠</span>
+    <span>Início</span>
+  </button>
+
+  <button class="nav-button" data-screen="tasks">
+    <span>📋</span>
+    <span>Tarefas</span>
+  </button>
+
+  <button class="nav-button" data-screen="rewards">
+    <span>🏆</span>
+    <span>Prêmios</span>
+  </button>
+
+  <button class="nav-button" data-screen="profile">
+    <span>👤</span>
+    <span>Perfil</span>
+  </button>
+</nav>
 
   <script>
     let tasks = JSON.parse(localStorage.getItem("focusly_tasks") || "[]");
