@@ -609,8 +609,9 @@ let xp = Number(localStorage.getItem("focusly_xp") || "0");
          checkbox.setAttribute("aria-label", "Concluir " + task.name);
 
 checkbox.addEventListener("change", () => {
-  if (checkbox.checked && !task.done) {
+  if (checkbox.checked && !task.xpAwarded) {
     xp += 10;
+    task.xpAwarded = true;
     updateXP();
   }
 
