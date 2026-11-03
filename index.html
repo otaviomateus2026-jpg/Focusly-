@@ -771,6 +771,18 @@ function showApp() {
   introScreen.style.display = "none";
   app.style.display = "block";
 }
+const navButtons = document.querySelectorAll(".nav-button");
+
+navButtons.forEach((button) => {
+  button.addEventListener("click", () => {
+    navButtons.forEach((item) => item.classList.remove("active"));
+    button.classList.add("active");
+
+    const screen = button.dataset.screen;
+
+    console.log("Tela selecionada:", screen);
+  });
+});
 
 const savedName = localStorage.getItem("focusly_user_name");
 
