@@ -858,21 +858,7 @@ if (percent === 100 && tasks.length > 0) {
   dailyMessage.textContent = "Vamos começar a conquistar seus objetivos!";
 }
     }
-    const focusMessage = document.getElementById("focusDailyMessage");
-
-if (tasks.length === 0) {
-  focusMessage.textContent =
-    "Vamos começar? Estou pronto para ajudar você! 🚀";
-} else if (percent === 100) {
-  focusMessage.textContent =
-    "Missão cumprida! Você concluiu todas as atividades! 🏆";
-} else if (percent >= 50) {
-  focusMessage.textContent =
-    "Estamos avançando muito bem! Continue assim! 💙";
-} else if (percent > 0) {
-  focusMessage.textContent =
-    "Bom começo! Cada tarefa concluída é uma vitória! 💪";
-} else {
+ 
   focusMessage.textContent =
     "Suas atividades estão esperando. Vamos começar?";
 }
